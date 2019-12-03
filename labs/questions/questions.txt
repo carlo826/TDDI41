@@ -1,0 +1,6 @@
+7-1
+a) The file /etc/nsswitch.conf controls NSS.
+
+b) The file /etc/resolv.conf controls the resolver
+
+c) The search keyword specifies a list of domains for lookup to be tried on.
