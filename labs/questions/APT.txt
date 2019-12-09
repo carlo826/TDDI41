@@ -1,0 +1,27 @@
+1-1:
+a)
+    install
+b)
+    remove
+c)
+    updates the local list of packages
+d)
+    upgrades installed packages as well as their dependencies to the lastest version.
+    
+1-2:
+a)
+    displays installed packages along with the marker "install" or "deinstall"
+b)
+    removes all package binaries and configuration files for vim.
+c)
+    lists where all files for bind9 are located.
+    
+6-1: "l"
+
+6-2: "/"
+
+6-3: "+" marks a package for installation "-" marks it for deletion
+
+6-4: "g"
+
+6-5: It menas that the package currently has broken dependencies
