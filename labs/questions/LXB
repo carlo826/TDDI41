@@ -1,0 +1,218 @@
+Excercise 3:
+3-1:
+a)
+    1. Execuate programs or shell command
+    2. System calls
+    3. Library calls
+    4. Special files
+    5. File formats and conventions
+    6. Games
+    7. Miscellaneous
+    8. System administration command
+    9. Kernel routines
+
+b)
+    Section 1
+    
+c)
+    Section 5
+
+d)
+    Section 8
+    
+Excercise 4:
+4-1:
+a)
+    It runs mkpassword with the given PASSWORD and SALT. Both are mandatory.
+    
+b)
+    It runs the uniq command with any amount of optional parameters, however if the input parameter is used the output parameter must also be used.
+    
+c)
+    It runs the gzip command with any of the optional flags. The file suffix and name may also be optinally entered.
+    
+d)
+    1.Runs the chcon command with several optional parameters, a mandatory context parameter and one or more mandatory files
+    2.Runs the chcon command with several optional parametes, an optional user, an optional role and one or more mandatory files.
+    3.Runs the chcon command with several optional parameters, a mandatory reference using --reference=RFILE and one or more mandatory files.
+    
+4-2:
+a)
+    A description of the commands functionallity as well as its flags and arguments.
+b)
+    In the OPTIONS section
+c)
+    in the SEE ALSO section
+d)
+    in the FILES section
+
+4-3:
+a)
+    the -a flag will display all pages
+b)
+    the -k flag will search by keyword
+
+4-4:
+a)
+    it lists the contents of the current directory
+b)
+    the -l flag
+c)
+    It shows contents recurivley meaning it shows the content in any of the directories as well.
+    
+Excercise 5:
+5-1:
+a)
+    /ssh
+b)
+    ../../bin/ssh
+    
+Excercise 6:
+6-1:
+a)
+    chmod u=rw, g=r, o=r FILE
+b)
+    chmod g-w FILE
+c)
+    chmod ug+x FILE
+    
+Excercise 7:
+7-1:
+a)
+    Everyone has permission to read and write
+b)
+    User and group has permission to read, write and execute, others have no permissions
+c)
+    User has permission to read and write, group and others has permission to read
+d)
+    Everyone has permission to read.
+    
+7-2: -R
+
+7-3: execute permission on directories means the user is allowed to open the directory and acces files and other directories within it.
+
+7-4: a is the most appropriate because it explicitly doesnt allow user and group to execute where as c does not.
+
+
+Excercise 8:
+8-1: by using chown with the -R flag.
+
+Excercise 9:
+9-1: sets the current directory to the parent of the current directory.
+
+9-2: sets the current directory to the parent of the parent of the current directory.
+
+9-3: the directory contents in long format (-l) meaning information such as ownership and permissions of each file
+     dot files (-a) 
+     suffix character (-F) that shows what type an entry is.
+
+9-4: 
+a)
+    it means that the following file is a device file that acts as an interface to a device.
+b)
+    Dave is the owner of the directory dir and the directory belongs to the group "staff".
+    root is the owner of the file dspp and the file belongs to the group "audio".
+c)
+    the root user and any user that is in the group "audio".
+    
+9-5: The name of "a" will be changed to "b" and therefore overwriting b. the flag -i will give the user a warning prompt before owerwriting b.
+
+9-6: the -p flag retains modification times, ownership and permissions.
+
+9-7: chown root:wheel secret
+     chmod 640
+     
+Excercise 10:
+10-2:  
+       /etc/profile
+              The systemwide initialization file, executed for login shells
+       /etc/bash.bashrc
+              The systemwide per-interactive-shell startup file
+       /etc/bash.bash.logout
+              The  systemwide  login shell cleanup file, executed when a login
+              shell exits
+       ~/.bash_profile
+              The personal initialization file, executed for login shells
+       ~/.bashrc
+              The individual per-interactive-shell startup file
+       ~/.bash_logout
+              The individual login shell cleanup file, executed when  a  login
+              shell exits
+       ~/.inputrc
+              Individual readline initialization file
+
+Excercise 11:
+11-1: PATH is set to /home/TDP024/go/go1.11/bin:/home/TDDE06/maven/maven/bin:/home/TDIU16/lab/bin:/usr/local/bin:/bin:/usr/bin:/sw/local/bin:/usr/games:.:/opt/thinlinc/bin
+      The path variable is used to tell the shell where to search for executable files.
+      
+11-2: HOME is set to /home/carlo826, it contains the users home directory.
+
+11-3: 
+    PATH=/sbin/:/home/TDDI41/bin:$PATH
+    
+Excercise 12:
+12-1:
+a)
+    stdout will be directed to file1
+b)
+    stderr will be directed to what stdout is currently directed to, stdout will then be directoed to file1.
+c)
+    stdout will be directed to file1 stderr will then be directed to where stdout is currently directed(file1)
+
+Excercise 13:
+13-1:
+a)
+    print the name of any directory or folder reachable from the current folder, case insensitive.
+b)
+    displays any lines that contains the word "fail" from the output of command 2>&1, case insensitive.
+c)
+    redirects output from stdout to /dev/null and prints output from stderr, case insensitive.
+    
+13-2:
+a)
+    ls ~ -a -R > /tmp/HOMEFILES
+b)
+    find / -perm -o=w 2> /dev/null
+    
+Excercise 14:
+14-1:
+    >ping 127.0.0.1
+    >vZ
+    >g
+
+14-2:
+    >ping 127.0.0.1 >/dev/null&
+    >ps
+    >kill 54043
+    The pid was 54043
+    
+14-3: the -9 flag sends the SIGKILL signal forcing the process to exit instantly. using -1 as pid means all processes the user is allowed to kill will be killed.
+
+14-4:
+    >127.0.0.1 >dev/null&
+    >pkill ping
+
+Excercise 16:
+16-1: g
+
+16-2: G
+
+16-3: /"option"
+
+16-4: n
+
+16-5: 
+a)
+    "no"
+b)
+    xauth
+
+Excercise 18:
+18-1: Prints the last 10 lines of the file and any lines appended afterwards.
+
+18-2: grep cron /var/log/syslog
+
+Excercise 19:
+19-1 : exmin4, jove, mintsystem, nscd, rsync, rwhod-sender, quotarpc, sendmail, ntp, iptables-persistant, pppd-dns, fail2ban, grub-common, linuxlogo, ondemand, rc.local, killprocs, single, sendsigs, urandom, umountnfs.sh, umountfs, umountroot, halt, keymap.sh, quota, x11-common
+
+19-2: /etc/init.d/ssh restart
