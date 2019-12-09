@@ -1,0 +1,48 @@
+Excercise 1: 
+    
+    for a in "$@"; do
+        echo $a;
+    done
+    
+    for a in "$*"; do
+        echo $a;
+    done
+    
+    $@ Splits the variable a into single words whereas $* will treat it as one word
+    
+Excercise 2:
+2-1: Because you want the entire argument as one string.
+
+2-2: No because that would split the words into different arguments.
+
+Excercise 3:
+
+while [ $i -lt 4 ]
+do
+    xterm &
+    i=$[$i+1]
+done
+
+
+Excercise 5:
+5-1: Reads the first character of the parameter line (0 = offset, 1 = length)
+
+5-2: it is equivalent to true
+
+5-3: $()
+
+5-4: It is used for doing arithmetics in bash, it's called Arithmetic Expansion in the man page for bash.
+
+5-5: find . -name ".*" | wc -l
+
+Excercise 6:
+
+6-1: 
+a)
+    It escapes the next character from being interpreted by the shell, effectivley treating the next line as part of the first.
+b)
+    It means echo and exit are treated as a single expression, using parantheses instead would mean only echo would be run.
+    
+6-2: It makes the mailserver variable local to the smtp_send function.
+
+6-3: To give the user a chance to read the previous echo
