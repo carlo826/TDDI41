@@ -1,0 +1,52 @@
+Excersice 1:
+1-1:
+a)
+    It is used to check the connectivity status for a network.
+b)
+    -n
+c) 
+    sends a ECHO_REQUEST package requesting an ECHO_RESPONSE package.
+d)
+    ping 10.17.1.1
+    
+1-2:
+a)
+    It is used to get the full route that a package takes to its destination
+b)
+    By using a time to live field that increases by one for each gateway along the path.
+c)
+    -n
+d)
+     1  idagw-181-64.ida.liu.se (130.236.181.65)  2.560 ms  2.984 ms  3.365 ms
+     2  130.236.6.213 (130.236.6.213)  0.334 ms  0.370 ms  0.396 ms
+     3  a-b-1.net.liu.se (130.236.7.37)  0.338 ms  0.396 ms  0.432 ms
+     4  130.236.9.201 (130.236.9.201)  0.339 ms  0.323 ms  0.353 ms
+     5  linkoping-lin3-r1.sunet.se (130.242.6.74)  0.401 ms  0.389 ms  0.373 ms
+     6  norrkoping-nkg188-r1.sunet.se (130.242.4.79)  1.035 ms  1.065 ms  1.036 ms
+     7  stockholm-fre-r1.sunet.se (130.242.4.56)  3.202 ms  3.182 ms  3.165 ms
+     8  se-fre.nordu.net (109.105.102.9)  3.235 ms  3.204 ms  3.189 ms
+     9  se-kst2.nordu.net (109.105.97.27)  3.350 ms  3.372 ms  3.360 ms
+    10  72.14.196.42 (72.14.196.42)  3.465 ms as15169-10g-sk1.sthix.net (192.121.80.47)  3.843 ms 72.14.196.42 (72.14.196.42)  3.435 ms
+    11  108.170.253.177 (108.170.253.177)  4.763 ms  4.749 ms  4.735 ms
+    12  209.85.242.83 (209.85.242.83)  4.488 ms  4.523 ms 209.85.242.99 (209.85.242.99)  4.288 ms
+    13  arn09s19-in-f14.1e100.net (216.58.207.238)  3.776 ms  3.580 ms  3.761 ms
+    
+    Each line represents a different gateway that the package used to get to google.com
+    
+1-3:
+b)
+    ip: "ip route list"
+    
+1-4:
+a)
+    It is a parameter for the kernel, it is both a system call and a administrator command
+b)
+    /etc/sysctl.conf
+c)
+    net.ipv4.ip_forward
+    
+1-5:
+    We will use adresses 10.0.0.1 - 10.0.0.4, the names will be gw, server, client-1, client-2. The netmask will be 255.255.255.0 and the broadcast will be 10.0.0.255
+    
+1-6:
+    Forwarding is passing a packet to the next destination whereas routing is finding the enitre path that the packet will take.
