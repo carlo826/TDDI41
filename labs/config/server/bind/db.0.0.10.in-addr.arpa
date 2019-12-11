@@ -1,0 +1,20 @@
+; values copied from ./db.g2.sysinst.ida.liu.se
+
+$TTL 1h
+
+@ IN SOA server.g2.sysinst.ida.liu.se. hostmaster.g4.sysinst.ida.liu.se. (
+    2019121100 ; serial number 
+    3600       ; refresh    = 1h 
+    900        ; retry      = 15m
+    1209600    ; expiry     = 2w
+    900        ; min ttl    = 15m
+);
+
+; NS records
+@ IN NS server.g2.sysinst.ida.liu.se.
+
+; A records
+1.0.0.10.in-addr.arpa.  IN	PTR gw.g2.sysinst.ida.liu.se.
+2.0.0.10.in-addr.arpa.	IN	PTR	server.g2.sysinst.ida.liu.se.
+3.0.0.10.in-addr.arpa.	IN	PTR	client-1.g2.sysinst.ida.liu.se.
+4.0.0.10.in-addr.arpa.	IN	PTR	client-2.g2.sysinst.ida.liu.se.
