@@ -1,4 +1,0 @@
-zone "lan" {
-        type master;
-        file "/home/router/named/lan.db";
-};
