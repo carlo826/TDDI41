@@ -1,0 +1,118 @@
+Exercise 1:
+1-2:
+a) A server which provides an answer to a DNS query.
+
+b) Domains are broken into zones meaning a domain may contain multiple zones but a zone may only be part of one domain.
+
+c) Recursive query: The client will send the query to the first server, if the query is not resolved the server will send to another server etc. until the query is resolved.
+Non-recursive query: The client will iterativley send individiual queries to multiple servers until the query is resolved.
+Clients(PCs) usually use recursive queries while DNS servers usually use non-recursive queries.
+
+d) The purpose of delegation is to spread administration of DNS zones between seperate name servers to prevent overloading.
+
+e) A resource record is the content of a DNS zone file. A common resource record contains the metadata NAME, TYPE, CLASS, TTL (Time to live), RDLENGTH (Length of RDATA) and RDATA (actual data such as IP adress and hostname)
+
+f) Answer: contains the answer to the given query
+Authority: contains resource records to the name servers used
+Additional: contains resource records that may be useful but are not used to answer the query directly
+
+g) There are flags in the DNS message header for both Authoriative Answer and Recursion Desired
+
+h) Glue records are DNS records created by the domain to provide a complete answer within the domain. Glue records are needed when the name server is in a subdomain.
+
+1-3:
+They are contained in 24.131.10.in-addr-arpa. the adress 10.131.24.65 would also have its PTR records in the same zone.
+
+The problem with delegating authority over DNS records that only correspond to 10.131.24.64/27 is that specific records are not delegated but rather zones are.
+
+1-4:
+The purpose of classless in-addr.arpa delegation is to create smaller delegation zones.
+Normal zones are limited to 256 adress blocks but classless in-addr.arpa allows more specific zones by prefixing with the network block such as 27/10.131.24.64
+
+
+Exercise 2:
+2-1 Use the host tool to answer the following questions.
+
+a) What is the address of informatix.ida.liu.se.
+130.236.180.77
+
+b) What is the address of www.ida.liu.se.
+130.236.180.77 (alias of informatix.ida.liu.se)
+
+c) What is the address of liu.se.
+130.236.5.66
+
+2-2 Compare the output of host www.ida.liu.se ns3.liu.se and host www.ida.liu.se dns.liu.se and answer the following questions.
+
+a) Why is there no answer in the first query but in the second query.
+Because the dns server ns3.liu.se does not contain an entry for www.ida.liu.se whereas dns.liu.se does.
+
+b) Both answers are correct, even though they differ. Explain why.
+The purpose of the command is to find the specified domain name in the specified DNS server which both answers correctly returns (because it doesnt exist in ns3.liu.se).
+
+
+Exercise 3:
+3-1 Use host to find out which name servers are authoritative for the zone adlibris.se. Which organization(s) operate them.
+COMMAND: host -t soa adlibris.se
+
+dns01.dipcon.com
+
+the organization dipcon.com operate them.
+
+
+3-2 Use host to list all records in the ida.liu.se zone and wc to count them. How many records are there? If this is temporarily unavailable (181017), go on through the tasks.
+COMMAND: host -l ida.liu.se
+
+Transfer failed.
+Skipping task as instructed.
+
+3-3 Use host to find out all information you can about the name ida.liu.se (i.e. the name itself, not the contents of the zone). What did you find out? How can you be sure that is all the information that is available.
+COMMAND: host -a ida.liu.se
+
+We found all the records for each record-type in the zone (AAAA, MX, SOA, A, NS). We can be sure that this is all the information because the -a flag queries everything.
+
+
+Exercise 4: Queries with dig
+4-1 Use dig to answer the following questions. If the tests below fail, do this for www.ida.liu.se.
+We used www.ida.liu.se instead of parlomba1.ida.liu.se.
+
+a) What is the address of parlomba1.ida.liu.se.
+COMMAND: dig +short www.ida.liu.se
+
+130.236.180.77
+
+b) Which nameservers have authoritative information for parlomba1.ida.liu.se.
+COMMAND: dig +short SOA www.ida.liu.se
+
+ns.ida.liu.se
+
+c) Which name corresponds to the IPv4 address 130.236.180.77.
+COMMAND: dig +short -x 130.236.180.77
+
+informatix.ida.liu.se.
+
+4-2 Use the trace feature of dig to answer the following questions.
+
+a) What nameservers are consulted in a query for the A record of www.ida.liu.se.
+COMMAND: dig +trace A www.ida.liu.se | grep Received | sed 's/.*(\(.*\))/\1/'
+
+130.236.1.9 in 0 ms
+i.root-servers.net in 4 ms
+g.ns.se in 18 ms
+sunic.sunet.se in 3 ms
+ns2.liu.se in 1 ms
+
+
+b) What nameservers are consulted when determining the address of update.microsoft.com? Note that the presence of a CNAME record makes this question different from the previous one: you will need to run dig more than once to get the answer.
+COMMAND: dig +trace update.microsoft.com | grep Received
+
+;; Received 525 bytes from 130.236.1.9#53(130.236.1.9) in 0 ms
+;; Received 1208 bytes from 192.112.36.4#53(g.root-servers.net) in 33 ms
+;; Received 678 bytes from 192.42.93.30#53(g.gtld-servers.net) in 23 ms
+;; Received 93 bytes from 208.84.2.53#53(ns2.msft.net) in 20 ms
+
+
+COMMAND: dig +trace update.microsoft.com @ns4.msft.net | grep Received
+
+;; Received 284 bytes from 208.76.45.53#53(ns4.msft.net) in 20 ms
+;; Received 93 bytes from 208.84.0.53#53(ns1.msft.net) in 12 ms
