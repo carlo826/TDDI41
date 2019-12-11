@@ -14,11 +14,11 @@ zone "0.0.10.in-addr.arpa" {
 };
 
 // Logging all DNS queries
-logging {
-    channel query.log {
-        file "/etc/bind/dns.log";
-        severity debug 3;
-          print-time yes;
-    };
-    category queries { query.log; };
-};
+//logging {
+//    channel query.log {
+//        file "/etc/bind/dns.log";
+//        severity debug 3;
+//          print-time yes;
+//    };
+//    category queries { query.log; };
+//};
