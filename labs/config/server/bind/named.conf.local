@@ -12,13 +12,3 @@ zone "0.0.10.in-addr.arpa" {
         type master;
         file "/etc/bind/zones/db.0.0.10.in-addr.arpa";
 };
-
-// Logging all DNS queries
-//logging {
-//    channel query.log {
-//        file "/etc/bind/dns.log";
-//        severity debug 3;
-//          print-time yes;
-//    };
-//    category queries { query.log; };
-//};
