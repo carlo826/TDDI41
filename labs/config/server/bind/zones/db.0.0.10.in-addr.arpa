@@ -2,7 +2,7 @@
 
 $TTL 1h
 
-@ IN SOA server.g2.sysinst.ida.liu.se. hostmaster.g4.sysinst.ida.liu.se. (
+@ IN SOA server.g2.sysinst.ida.liu.se. hostmaster.g2.sysinst.ida.liu.se. (
     2019121100 ; serial number 
     3600       ; refresh    = 1h 
     900        ; retry      = 15m
