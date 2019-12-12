@@ -4,7 +4,7 @@
 options {
     directory "/var/cache/bind";
 
-	forwarders { 1.1.1.1; };
+    forwarders { 1.1.1.1; };
 
     // cache parameters
     // https://cybersecurity.att.com/blogs/security-essentials/dns-poisoning
