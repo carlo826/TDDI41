@@ -32,7 +32,7 @@ options {
     allow-query { any; };
 
     // Accept non-authoritative data requests for internal network only
-	allow-query-cache { internals; };
+    allow-query-cache { internals; };
 
     // Allow recursive queries to the local hosts
     recursion yes;
