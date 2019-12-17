@@ -1,3 +1,0 @@
-6-1. scp root@192.168.1.100:/etc/network/interfaces /home/
-6-2. scp -rp root@192.168.1.100:/etc/default /home/
-     -rp: copy directory recursively and perserve
