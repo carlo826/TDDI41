@@ -4,17 +4,23 @@
 options {
         directory "/var/cache/bind";
 
+        listen-on { 10.0.0.2; };
+        
         recursion yes;
-        allow-query { trusted; };
+        allow-query { any; };
+        allow-recursion { trusted; };
+        allow-transfer  { none; };
+        allow-query-cache { trusted; };
 
+        // Forwarding
+        forward only;
         forwarders {
             1.1.1.1;
             8.8.8.8;
             8.8.4.4;
         };
-
-        forward only;
         
+        // Security
         dnssec-enable yes;
         dnssec-validation yes;
 
