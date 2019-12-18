@@ -1,7 +1,3 @@
 127.0.0.1   localhost
 
-# The following lines are desirable for all IPv6 capable hosts
-::1 localhost ip6-localhost ip6-loopback
-ff02::1 ip6-allnodes
-ff02::2 ip6-allrouters
-10.0.0.2    server.student.ida.liu.se    server
+10.0.0.2    server.g2.student.ida.liu.se    server

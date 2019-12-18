@@ -6,7 +6,7 @@ $TTL 1h
 ; @2 https://www.ripe.net/publications/docs/ripe-203
 ; @3 https://securityblog.switch.ch/2016/05/02/optimizing-negative-caching-time-in-dns/
 
-@ IN SOA server.g2.sysinst.ida.liu.se. hostmaster.g2.sysinst.ida.liu.se. (
+@ IN SOA server.student.ida.liu.se. hostmaster.g2.student.ida.liu.se. (
     2019121100 ; serial number (YYYYMMDDnn)
     3600       ; refresh    = 1h (can be low as we only have 1 zone)
     900        ; retry      = 15m (---||---)
@@ -15,10 +15,10 @@ $TTL 1h
 );
 
 ; NS records
-@ IN NS server.g2.sysinst.ida.liu.se.
+@ IN NS server.g2.student.ida.liu.se.
 
 ; A records
-client-1.g2.sysinst.ida.liu.se.	IN	A	10.0.0.3
-client-2.g2.sysinst.ida.liu.se.	IN	A	10.0.0.4
-server.g2.sysinst.ida.liu.se.	IN	A	10.0.0.2
-gw.g2.sysinst.ida.liu.se.	    IN	A	10.0.0.1
+client-1.g2.student.ida.liu.se.	IN	A	10.0.0.3
+client-2.g2.student.ida.liu.se.	IN	A	10.0.0.4
+server.g2.student.ida.liu.se.	IN	A	10.0.0.2
+gw.g2.student.ida.liu.se.	    IN	A	10.0.0.1
