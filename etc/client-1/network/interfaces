@@ -9,4 +9,4 @@ iface ens3 inet static
   netmask 255.255.255.0
   broadcast 10.0.0.255
   gateway 10.0.0.1
-  dns-nameservers 10.0.0.2
+  dns-nameservers 10.0.0.2 1.1.1.1
