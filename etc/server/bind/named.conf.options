@@ -4,7 +4,7 @@
 options {
         directory "/var/cache/bind";
 
-        listen-on { 10.0.0.2; };
+        listen-on { 127.0.0.1; };
         
         // Queries
         recursion yes;
