@@ -1,0 +1,1 @@
+cp -r /root/tddi41_redo/etc/$1/* /etc

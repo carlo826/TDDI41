@@ -1,0 +1,34 @@
+// https://wiki.debian.org/Bind9#File_.2Fetc.2Fbind.2Fnamed.conf.options
+// https://securitytrails.com/blog/8-tips-to-prevent-dns-attacks
+
+options {
+        directory "/var/cache/bind";
+
+        listen-on { 127.0.0.1; };
+        
+        // Queries
+        recursion yes;
+        allow-query { any; };
+        allow-recursion { trusted; };
+        allow-transfer  { none; };
+        allow-query-cache { trusted; };
+
+        // Forwarding
+        forward only;
+        forwarders {
+            1.1.1.1;
+            8.8.8.8;
+            8.8.4.4;
+        };
+        
+        // Security
+        dnssec-enable yes;
+        dnssec-validation yes;
+
+        max-cache-size 96M;
+
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { none; };
+
+        version "Forbidden";
+};

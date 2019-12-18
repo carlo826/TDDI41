@@ -1,0 +1,14 @@
+// Bind9 configuration
+// todo: correct zone name?
+
+// Master zone
+zone "g2.student.ida.liu.se" {
+  type master;
+  file "/etc/bind/zones/db.g2.student.ida.liu.se";
+};
+
+// Reversed zone
+//zone "0.0.10.in-addr.arpa" {
+//        type master;
+//        file "/etc/bind/zones/db.0.0.10.in-addr.arpa";
+//};
