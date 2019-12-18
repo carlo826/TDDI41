@@ -2,44 +2,22 @@
 // https://securitytrails.com/blog/8-tips-to-prevent-dns-attacks
 
 options {
-    directory "/var/cache/bind";
+        directory "/var/cache/bind";
 
-    forwarders { 1.1.1.1; };
+        recursion yes;
+        allow-query { trusted; };
 
-    // cache parameters
-    // https://cybersecurity.att.com/blogs/security-essentials/dns-poisoning
-    // https://www.zytrax.com/books/dns/ch7/hkpng.html#max-ncache-ttl
-	max-cache-size 96M;
+        forwarders {
+            1.1.1.1;
+            8.8.8.8;
+            8.8.4.4;
+        };
 
-    //========================================================================
-    // If BIND logs error messages about the root key being expired,
-    // you will need to update your keys.  See https://www.isc.org/bind-keys
-    //========================================================================
-	
-    dnssec-validation auto;
+        forward only;
+        
+        dnssec-enable yes;
+        dnssec-validation yes;
 
-    // From 9.9.5 ARM, disables interfaces scanning to prevent unwanted stop listening
-    interface-interval 0;
-
-    // Listen on local interfaces only(IPV4)
-    listen-on-v6 { none; };
-    listen-on { 10.0.0.2; };
-
-    // Do not transfer the zone information to the secondary DNS
-    allow-transfer { none; };
-
-    // Accept authoritative requests for any
-    allow-query { any; };
-
-    // Accept non-authoritative data requests for internal network only
-    allow-query-cache { internals; };
-
-    // Allow recursive queries to the local hosts
-    recursion yes;
-    allow-recursion { internals; };
-
-    auth-nxdomain no;    # conform to RFC1035
-
-    // Do not make public version of BIND 
-    version "Forbidden";
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { any; };
 };
