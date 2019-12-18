@@ -9,3 +9,17 @@ The default maximum time difference is 1000s.
 
 2-3 NTP usually works by speeding up or slowing down the clock, not setting it outright. Why.
 This is done to prevent time jumps (periods of time that "doesnt exist").
+
+
+Exercise 3:
+3-3 Explain the output of ntpq -p.
+remote: Where the client is synchronized to. (For our client this is the ip of the router). The * before the name means its the server we are synchonized to.
+refid: What the remote server is synchonized to. For our client this is 162.159.200.1 which is the remote for the router
+st: stratum level
+t: type both the client and the server have u meaning they are unicast
+when: number of seconds since last response
+poll: how often the client polls the NTP server
+reach: 8-bit register that shows packet history. When a packet is recieved the rightmost bit is set to 1, when a packet is recieved the value is set to 0.
+delay: the round-trip time in milliseconds
+offset: the time difference in milliseconds between the client and the server
+jitter: the time difference in milliseconds between the last two samples.
