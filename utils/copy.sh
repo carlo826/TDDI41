@@ -1,5 +1,9 @@
+#!/bin/bash
+
+hs=$(echo $HOSTNAME)
+
 # Copy
-cp -r /root/tddi41_redo/etc/${hostname}/* /etc
+cp -r /root/tddi41_redo/etc/${hs}/* /etc
 
 # Restart all services
 /etc/init.d/networking restart
