@@ -1,0 +1,5 @@
+5-1 What is the difference between using "compat" and using "files nis" as the list of sources for e.g. passwords in the name service switch.
+compat allows additional syntax for adding and removing user and group.
+
+
+5-3 Why should you use local files as the first information source instead of NIS.
