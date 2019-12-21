@@ -6,7 +6,7 @@
 
 :' 
     TEST CASE Router:
-        Check if NTP server has correct config
+        Check if NTP server has correct config.
 '
 if [ $HOSTNAME == "gw" ]; then
     # Check if noquery/nomodify is set
@@ -17,7 +17,7 @@ if [ $HOSTNAME == "gw" ]; then
     [[ $(ntpq -p | grep '1 u') ]] && exit 0
 :' 
     TEST CASE Clients:
-        Check if Clients are using our NTP Server
+        Check if Clients are using our NTP Server.
 '
 else
     # Check if client is using our NTP server & is synced
