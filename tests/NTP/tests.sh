@@ -7,9 +7,9 @@
 ###     Check if NTP server has correct config.
 if [ $HOSTNAME == "gw" ]; then
     # Check if noquery/nomodify is set
-    [[ $(cat /etc/gw/ntp.conf | grep 'nomodify|noquery') ]] &&
+    [[ $(cat /etc/ntp.conf | grep 'nomodify|noquery') ]] &&
     # Check if correct server is set
-    [[ $(cat /etc/gw/ntp.conf | grep 'server se.pool.ntp.org') ]] &&
+    [[ $(cat /etc/ntp.conf | grep 'server se.pool.ntp.org') ]] &&
     # Check if stratum is 1 and mode set to unicast
     [[ $(ntpq -p | grep '1 u') ]] &&
     echo "Router test successful" && exit 0
