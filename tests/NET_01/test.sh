@@ -5,3 +5,5 @@ if [ $HOSTNAME == "client-1" ]; then
 else
   echo "Test failed: Incorrect hostname"
 fi
+
+exit 1

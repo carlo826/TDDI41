@@ -10,6 +10,7 @@
 '
 if [ $HOSTNAME == "gw" ]; then
     [[ true ]] && exit 0
+    
 :' 
     TEST CASE Clients:
         Check if Clients are using our NTP Server
