@@ -7,7 +7,7 @@
 ###     Check if NTP server has correct config.
 if [ $HOSTNAME == "gw" ]; then
     # Check if noquery/nomodify is set
-    [[ $(cat /etc/ntp.conf | grep 'nomodify|noquery') ]] &&
+    [[ $(cat /etc/ntp.conf | grep 'nomodify nopeer noquery') ]] &&
     # Check if correct server is set
     [[ $(cat /etc/ntp.conf | grep 'server se.pool.ntp.org') ]] &&
     # Check if stratum is 1 and mode set to unicast
