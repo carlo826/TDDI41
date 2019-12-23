@@ -10,8 +10,8 @@ if [ $HOSTNAME == "gw" ]; then
     [[ $(cat /etc/ntp.conf | grep 'nomodify nopeer noquery') ]] &&
     # Check if correct server is set
     [[ $(cat /etc/ntp.conf | grep 'server se.pool.ntp.org') ]] &&
-    # Check if stratum is 1 and mode set to unicast
-    [[ $(ntpq -p | grep '1 u') ]] &&
+    # Check if mode set to unicast
+    [[ $(ntpq -p | grep ' u ') ]] &&
     echo "Router test successful" && exit 0
 
 
@@ -20,8 +20,8 @@ if [ $HOSTNAME == "gw" ]; then
 else
     # Check if client is using our NTP server & is synced
     [[ $(ntpq -p | grep '*10.0.0.1') ]] &&
-    # Check if stratum is 2 and mode set to unicast
-    [[ $(ntpq -p | grep '2 u') ]] &&
+    # Check if mode set to unicast
+    [[ $(ntpq -p | grep ' u ') ]] &&
     echo "Client test successful" && exit 0
 fi
 
