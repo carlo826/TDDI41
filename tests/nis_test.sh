@@ -2,7 +2,7 @@
 
 ### TEST: 
 ###     Temp
-### @ref https://docs.centrify.com/en/css/2018-html/#page/Network_information_service/Verifying_NIS_configuration_for_servers_and_clie.3.html
+### ref: https://www.thegeekstuff.com/2011/11/linux-nis-server-and-client/
 
 ### TEST CASE Clients:
 ###     Check if Clients are using our NTP Server.
