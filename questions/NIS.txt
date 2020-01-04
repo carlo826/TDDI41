@@ -1,5 +1,14 @@
+2-1 Why use a directory service? Name one alternative to a directory service.
+Because it allows us to easier manage files and permissions on our network. An alternative to using a directory service is to use a database hosted on the network.
+
+2-2 Name at least two common directory services other than NIS.
+Windows active directory
+LDAP
+
+
 5-1 What is the difference between using "compat" and using "files nis" as the list of sources for e.g. passwords in the name service switch.
 compat allows additional syntax for adding and removing user and group.
 
 
 5-3 Why should you use local files as the first information source instead of NIS.
+Because it allows us to access some files even if we cant access the network, it also reduces network traffic.
