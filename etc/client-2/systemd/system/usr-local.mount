@@ -1,0 +1,12 @@
+[Unit]
+Description=Things devices
+After=network.target
+
+[Mount]
+What=10.0.0.2:/usr/local
+Where=/usr/local
+Type=nfs
+Options=_netdev,auto
+
+[Install]
+WantedBy=multi-user.target
