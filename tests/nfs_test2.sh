@@ -12,7 +12,7 @@ if [ $HOSTNAME == "server" ]; then
     [[ $(showmount -e | grep '/home1') ]] &&
     [[ $(showmount -e | grep '/home2') ]] &&
     echo "Test successful" && exit 0
-
+fi
 
 ## Tests failed
 exit 1
