@@ -1,0 +1,11 @@
+11-1 Why is RAID 1+0 generally considered more reliable than RAID 0+1.
+Raid 1+0 is more reliable since the disks are divided between more groups.
+
+11-2 As individual disk sizes grow, RAID-5 is no longer considered useful, and RAID-6 is also rapidly becoming obsolete. Why.
+Because if one disk fails you have to be able to read every byte from all other disk and since disk sizes are large there is a higher risk of read failure.
+
+11-3 What is the point of the file system journal in e.g. ext3.
+It can restore the filesystem way faster and with a lower chance of corruption after a crash.
+
+11-4 Explain the purpose of using a volume manager, like LVM.
+LVM allows grouping of multiple physical drives into logical drives, increasing abstraction and flexibility.
