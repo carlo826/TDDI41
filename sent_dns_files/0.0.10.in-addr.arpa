@@ -1,0 +1,14 @@
+; Name servers for 10.0.0.2/24
+;
+2/24           NS      gw.g2.student.ida.liu.se.     ; 10.0.0.1
+2/24           NS      server.g2.student.ida.liu.se.     ; 10.0.0.2
+2/24           NS      client-1.g2.student.ida.liu.se.     ; 10.0.0.3
+2/24           NS      client-2.g2.student.ida.liu.se.     ; 10.0.0.4
+
+;
+; Classless in-addr.arpa. delegation for 10.0.0.2/24
+;
+1              CNAME   1.2/24.0.0.10.in-addr.arpa.
+2              CNAME   2.2/24.0.0.10.in-addr.arpa.
+3              CNAME   3.2/24.0.0.10.in-addr.arpa.
+4              CNAME   4.2/24.0.0.10.in-addr.arpa.
