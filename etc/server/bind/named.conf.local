@@ -8,7 +8,10 @@ zone "g2.student.ida.liu.se" {
 };
 
 // Reversed zone
-//zone "0.0.10.in-addr.arpa" {
-//        type master;
-//        file "/etc/bind/zones/db.0.0.10.in-addr.arpa";
-//};
+zone "0.0.10.in-addr.arpa" {
+        type slave;
+        file "/etc/bind/zones/db.0.0.10.in-addr.arpa";
+        masters {
+            10.0.0.2;
+        };
+};
