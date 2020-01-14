@@ -1,6 +1,6 @@
 6-1 What command would you use to copy the file /etc/network/interfaces from the instance to your IDA home folder.
-scp root@192.168.1.100:/etc/network/interfaces /home/
+scp root@127.0.0.1:/etc/network/interfaces /home/
 
 6-2 What command would you use to copy the directory /etc/default (and all its contents) from the instance to your IDA home folder.
-scp -rp root@192.168.1.100:/etc/default /home/
+scp -rp root@127.0.0.1:/etc/default /home/
 -rp: copy directory recursively and perserve
