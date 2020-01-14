@@ -1,0 +1,5 @@
+; PTR records
+1 IN PTR gw.g2.student.ida.liu.se.
+2 IN PTR server.g2.student.ida.liu.se.
+3 IN PTR client-1.g2.student.ida.liu.se.
+4 IN PTR client-2.g2.student.ida.liu.se.
