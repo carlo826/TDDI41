@@ -1,9 +1,10 @@
 #!/bin/bash
+arr=("gw" "server" "client-1" "client-2")
+echo "Test gw(1), server(2), client-1(3), client-2(4)?
+read -n 1 -p "Selection:" input
 
-if [ $HOSTNAME == "client-1" ]; then
-  echo "Test passed!"
-else
-  echo "Test failed: Incorrect hostname"
+if [ $HOSTNAME == arr[input] ]; then
+    echo "Test successful" && exit 0
 fi
 
 exit 1
