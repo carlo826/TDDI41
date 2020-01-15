@@ -34,16 +34,19 @@ A) There are flags in the DNS message header for both Authoriative Answer and Re
 // TODO: answer these questions
 
 h) Explain what glue records are and when they are necessary.
-A)
+A) A glue record is the nameserver and IP address of a domain that the nameserver is a subdomain of. They are needed to prevent a loop that occurs when a computer tries to resolve
+a domain for example www.example.org. The computer would first try to resolve ns1.example.org but ns1.example.org is contained in example.org so it would need to resolve ns1.example.org etc.
 
 1-3: Which zone in DNS contains PTR records corresponding to IP addresses in the
 network 10.131.24.64/27? Name some other networks that have PTR records in the same zone. 
 What is the problem with delegating authority over the DNS records corresponding only to 10.131.24.64/27.
-A)
+A)The PTR records for 10.131.24.64/27 are contained in 24.131.10.in-addr.arpa.
+10.131.24.65/27 and 10.131.24.66/27 would also have their PTR records in 24.131.10.in-addr.arpa.
+The problem with delegating authority to all DNS records in 10.131.24.64/27 is that the zone is seperated into subzones
 
 1-4: Explain the purpose of classless in-addr.arpa delegation. Explain how it works.
-A)
-
+A)The purpose of classless in-addr.arpa delegation is to allow for more zone delegation in IP-ranges that dont fall on octet boundaries.
+This is done in bind by using CNAME records for subdomains to be delegated and then prefixing the networkblock like this: 27/64.24.131.10.in-addr.arpa 
 
 Exercise 2:
 2-1 Use the host tool to answer the following questions.
