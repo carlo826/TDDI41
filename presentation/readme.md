@@ -7,12 +7,33 @@ Innehåller alla ändringar gjorde för varje labb och motivering till varför.
 ## NET
 
 ### Setting the hostname
+`etc/hostname` -> server, gw, client-1, client-2
+
+`etc/hosts` -> 127.0.0.1 localhost
+
+`etc/hosts` -> 10.0.0.x xxxx.student.ida.liu.se
 
 ### Basic network connectivity
 
+`etc/network/interfaces` -> Vi la till korrekt config för varje interface.
+I uppgiften var interfaces namn: eth0 och eth1, dock verkade
+vår version av debian ha andra namn ens3 och ens4
+
+`ip addroute default via 10.0.0.0.1 dev ens3` -> La till default route till interface
+ens3 på gatewayn.
+
 ### Name resolution
 
+`etc/nsswitch.conf` -> Vi la till första versionen för alla. (files dns)
+
+
 ### Router configuration
+Vi använder [iptables](https://www.howtoforge.com/nat_iptables) för att configurera 
+IP Forwarding (på vårat inåt riktade interface) och [Masquerading](https://www.linux.com/tutorials/what-ip-masquerading-and-when-it-use/) på det utåt riktade.
+
+`iptables --table nat --append POSTROUTING --out-interface ens3 -j MASQUERADE`
+
+`iptables --append FORWARD --in-interface ens4 -j ACCEPT`
 
 ## DNS
 
@@ -70,17 +91,27 @@ They are configurated to be used in `etc/bind/named.conf.local`
 // Master zone
 zone "g2.student.ida.liu.se" {
   type master;
-  file "/etc/bind/zones/g2.student.ida.liu.se";
+  file "/etc/bind/zones/g2.student.ida.liu.se.db";
+
+  // dnssec keys
+  key-directory "/etc/bind/keys/g2.stduent.ida.liu.se";
+
+  // publish and activate dnssec keys
+  auto-dnssec maintain;
+
+  // use inline signing
+  inline-signing yes;
 };
 
 // Reversed zone
 zone "2/24.0.0.10.in-addr.arpa." {
-  type slave;
-  file "/etc/bind/zones/10-24.0.0.10.in-addr.arpa";
-  masters {
-      student.ida.liu.se;
-  };
+        type slave;
+        file "/etc/bind/zones/10-24.0.0.10.in-addr.arpa";
+        masters {
+            student.ida.liu.se;
+        };
 };
+
 ```
 #### The cache parameters must be chosen sensibly.
 
@@ -119,9 +150,32 @@ max-cache-size 96M;
 
 ### Network time
 
+Gateway `etc/ntp.conf` -> NTP host
+Clients `etc/ntp.conf` -> NTP clients
+
+Vi försökte använda broadcast men det gick inte (varför?).
+Använder unicast nu istället (standard). 
+
 ## NIS
 
 ### Install a simple directory service
+[guide](https://likegeeks.com/linux-nis-server/)
+#### Server
+Instrallerade `ypserv`, `nis` på servern.
+
+`ypinit -m` för att initialize servern (updatera alla standard entries).
+
+#### Client
+Instrallerade `ypbind`, `nis` på clients.
+
+Starta `ypbind` och ändra `nsswitch.conf` att använda nis.
+
+La till servern (`server.g2.student.ida.liu.se`) i hosts eftersom vår DNS inte
+funkar.
+
+Kontrolleras med `ypcat ${map name}` i en client. 
+
+Kontrolleras med `ypwhich` i en client för domainnamn. 
 
 ## STO
 
