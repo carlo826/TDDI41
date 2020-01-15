@@ -1,0 +1,3 @@
+/usr/local 10.0.0.0/24(rw,sync,no_subtree_check,no_root_squash)
+/home1 10.0.0.0/24(rw,sync,no_subtree_check,no_root_squash)
+/home2 10.0.0.0/24(rw,sync,no_subtree_check,no_root_squash)

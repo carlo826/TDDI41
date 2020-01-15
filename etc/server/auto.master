@@ -1,0 +1,3 @@
++dir:/etc/auto.master.d
+
+/home /etc/auto.home --timeout=30
