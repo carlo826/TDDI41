@@ -1,19 +1,3 @@
-# TDDI41 - docs
-
-> frabe808, carlo826
-
-Innehåller alla ändringar gjorde för varje labb och motivering till varför.
-
-## NET
-
-### Setting the hostname
-
-### Basic network connectivity
-
-### Name resolution
-
-### Router configuration
-
 ## DNS
 
 ### DNS Security Requirements:
@@ -38,7 +22,7 @@ Responds authoritatively to all queries, how it handles recursive queries are
 explained below. Also does not allow transfer of it's zone files & and only
 responds authoritatively on valid addresses.
 
-#### Respond to all recursive queries from the hosts o§1n your own network.
+#### Respond to all recursive queries from the hosts in your own network.
 #### Not respond to any recursive queries from any outside hosts.
 `etc/bind/named.conf`
 ```
@@ -86,7 +70,7 @@ zone "2/24.0.0.10.in-addr.arpa." {
 
 The motivation for the cache parameters for the zone is commented in the zone file:
 
-`/etc/bind/zones/db.g2.student.ida.liu.se`
+`/etc/bind/zones/db.g2.student.ida.liu.se.db`
 
 Furthermore in config `etc/bind/named.conf.options` we limit the cache-size
 as we don't it to be unlimited.
@@ -112,29 +96,3 @@ max-cache-size 96M;
     version "Forbidden";
   ``` 
   To give as little information as possible to a potential intruder.
-* 
-
-
-## NTP
-
-### Network time
-
-## NIS
-
-### Install a simple directory service
-
-## STO
-
-### RAID
-
-### LVM2
-
-### Putting it into practice
-
-## NFS
-
-### Network File System
-
-### The automounter
-
-## Notes
