@@ -312,7 +312,8 @@ Installera autofs på båda klienterna och servern
 `apt-get install autofs`
 
 Uppdatera serverns auto.master fil med serverns mount point (/home) och en referens till auto.home
-`+dir:/etc/auto.master.d
+`
++dir:/etc/auto.master.d
 
 /home /etc/auto.home --timeout=30
 `
