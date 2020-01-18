@@ -1,2 +1,2 @@
-home1 -fstype=auto 10.0.0.2:/home1
-home2 -fstype=auto 10.0.0.2:/home2
+* -fstype=auto 10.0.0.2:/home1
+* -fstype=auto 10.0.0.2:/home2
